@@ -10,6 +10,7 @@ namespace AbhaySharma.Library
         Horror,
         Fantasy,
         SciFi,
-        Comedy
+        Comedy,
+        NonFiction
     }
 }

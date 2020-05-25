@@ -1,5 +1,5 @@
 Genre (enum):
-    | Action | Adventure | Romance | Thriller | Mystery | Horror | Fantasy | SciFi | Comedy
+    | Action | Adventure | Romance | Thriller | Mystery | Horror | Fantasy | SciFi | Comedy | NonFiction
     
 Rating (enum):
     | General | ParentalGuidance13 | Rated18 | Mature21
