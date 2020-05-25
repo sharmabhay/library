@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace AbhaySharma.Library
 {
     public sealed class Book
@@ -10,11 +13,20 @@ namespace AbhaySharma.Library
 
         public ushort Pages { get; set; }
 
-        public Genre Genre { get; set; }
-
         public Rating Rating { get; set; }
 
+        public List<Genre> Genres { get; set; }
+
         public override string ToString() =>
-            $"{Isbn}\n{Title}\n{Author}\n{Pages}\n{Genre}\n{Rating}";
+            $"{Isbn}\n{Title}\n{Author}\n{Pages}\n{Rating}\n" +
+                Genres.Select(ConvertGenreToString).Aggregate(AddStrings);
+
+        // selects a enum Genre and converts it to a string ToString
+        private static string ConvertGenreToString(Genre g) =>
+            g.ToString();
+
+        // concatenates the strings together with a '&' in between
+        private static string AddStrings(string a, string c) =>
+            $"{a} & {c}";
     }
 }

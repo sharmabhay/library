@@ -1,9 +1,9 @@
 Genre (enum):
     | Action | Adventure | Romance | Thriller | Mystery | Horror | Fantasy | SciFi | Comedy | NonFiction
-    
+
 Rating (enum):
     | General | ParentalGuidance13 | Rated18 | Mature21
-    
+
 AlphabetRange (struct):
     _initial: char { get; }
     '-'
@@ -14,17 +14,18 @@ Book (class):
     _title: string { get; set; }
     _author: string { get; set; }
     _pages: ushort { get; set; }
-    _genre: Genre { get; set; }
     _rating: Rating { get; set; }
+    _genres: List<Genre> { get; set; }
 
 BookShelf (class): IEnumerable<Book>
     private _books: List<Book>
-    
+
     _number: ushort { get; set; }
     _alphabetRange: AlphabetRange { get; set; }
     _genre: Genre { get; set; }
-    
+
     Add(book: Book): void
     Remove(book: Book): void
     FindBookByTitle(bookTitle: string): Book
-    FindBookByAuthor(bookAuthor: string): Book
+    FindBooksByAuthor(bookAuthor: string): List<Book>
+    FindBooksByGenre(bookGenre: Genre): List<Book>

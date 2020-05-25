@@ -8,5 +8,8 @@ namespace AbhaySharma.Library
 
         public AlphabetRange(char initial, char final) =>
             (Initial, Final) = (initial, final);
+
+        public override string ToString() =>
+            $"{Initial}-{Final}";
     }
 }
