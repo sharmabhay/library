@@ -13,6 +13,7 @@ namespace AbhaySharma.Library
                 Rating = Rating.ParentalGuidance13
             };
             Console.WriteLine(book);
+            Console.WriteLine((int)book.Genre);
         }
     }
 }
