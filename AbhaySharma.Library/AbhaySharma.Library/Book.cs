@@ -1,5 +1,3 @@
-using System;
-
 namespace AbhaySharma.Library
 {
     public sealed class Book
