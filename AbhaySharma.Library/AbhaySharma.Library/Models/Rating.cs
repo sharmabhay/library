@@ -1,4 +1,4 @@
-namespace AbhaySharma.Library
+namespace AbhaySharma.Library.Models
 {
     public enum Rating
     {

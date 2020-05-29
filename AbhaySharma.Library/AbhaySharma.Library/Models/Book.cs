@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AbhaySharma.Library
+namespace AbhaySharma.Library.Models
 {
     public sealed class Book
     {
@@ -21,11 +21,11 @@ namespace AbhaySharma.Library
             $"{Isbn}\n{Title}\n{Author}\n{Pages}\n{Rating}\n" +
                 Genres.Select(ConvertGenreToString).Aggregate(AddStrings);
 
-        // selects a enum Genre and converts it to a string ToString
+        // selects an enum Genre and converts it to a string ToString
         private static string ConvertGenreToString(Genre g) =>
             g.ToString();
 
-        // concatenates the strings together with a '&' in between
+        // concatenates the strings together with an '&' in between
         private static string AddStrings(string a, string c) =>
             $"{a} & {c}";
     }

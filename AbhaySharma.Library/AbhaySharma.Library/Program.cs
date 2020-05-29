@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AbhaySharma.Library.Models;
 
 namespace AbhaySharma.Library
 {
@@ -68,6 +69,11 @@ namespace AbhaySharma.Library
 
             Console.WriteLine();
             nonFictionAo.FindBooksByGenre(Genre.Comedy).ForEach(Console.WriteLine);
+
+            var x = typeof(Book);
+            foreach (var memberInfo in x.GetMembers()) Console.WriteLine(memberInfo);
+
+            object temp = 23;
         }
     }
 }

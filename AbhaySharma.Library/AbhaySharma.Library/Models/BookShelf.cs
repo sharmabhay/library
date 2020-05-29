@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AbhaySharma.Library
+namespace AbhaySharma.Library.Models
 {
     public sealed class BookShelf : IEnumerable<Book>
     {
