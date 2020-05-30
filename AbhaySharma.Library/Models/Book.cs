@@ -1,20 +1,27 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace AbhaySharma.Library.Models
 {
     public sealed class Book
     {
+        [Key]
         public ulong Isbn { get; set; }
 
+        [Required, StringLength(256, MinimumLength = 1)]
         public string Title { get; set; }
 
+        [Required, StringLength(128, MinimumLength = 1)]
         public string Author { get; set; }
 
+        [Required]
         public ushort Pages { get; set; }
 
+        [Required]
         public Rating Rating { get; set; }
 
+        [Required]
         public List<Genre> Genres { get; set; }
 
         public override string ToString() =>

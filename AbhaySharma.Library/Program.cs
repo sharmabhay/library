@@ -43,7 +43,7 @@ namespace AbhaySharma.Library
                 Genres = new List<Genre> {Genre.NonFiction, Genre.Comedy, Genre.Adventure, Genre.Fantasy}
             });
 
-            var me = new Book
+            /*var me = new Book
             {
                 Isbn = 69, Title = "Introduction to Me",
                 Author = "Abhay Sharma", Pages = 1250,
@@ -68,12 +68,7 @@ namespace AbhaySharma.Library
             nonFictionAo.FindBooksByAuthor("Angie Yoon").ForEach(Console.WriteLine);
 
             Console.WriteLine();
-            nonFictionAo.FindBooksByGenre(Genre.Comedy).ForEach(Console.WriteLine);
-
-            var x = typeof(Book);
-            foreach (var memberInfo in x.GetMembers()) Console.WriteLine(memberInfo);
-
-            object temp = 23;
+            nonFictionAo.FindBooksByGenre(Genre.Comedy).ForEach(Console.WriteLine);*/
         }
     }
 }

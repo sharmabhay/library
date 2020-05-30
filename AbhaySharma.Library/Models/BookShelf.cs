@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace AbhaySharma.Library.Models
@@ -9,11 +11,17 @@ namespace AbhaySharma.Library.Models
     {
         private List<Book> _books = new List<Book>();
 
+        [Key]
         public ushort Number { get; set; }
 
+        [NotMapped]
         public AlphabetRange AlphabetRange { get; set; }
 
+        [Required]
         public Genre Genre { get; set; }
+
+        [Required]
+        public List<Book> Books => _books;
 
         public void Add(Book book)
         {
