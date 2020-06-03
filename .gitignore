@@ -4,6 +4,9 @@
 # Jetbrains Rider directory
 .idea/
 
+# Database directory
+db/
+
 # User-specific files
 *.suo
 *.user

@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using AbhaySharma.Library.Data;
 using AbhaySharma.Library.Models;
 
 namespace AbhaySharma.Library
@@ -7,6 +8,22 @@ namespace AbhaySharma.Library
     public static class Program
     {
         public static void Main()
+        {
+            using var libraryDb = new ApplicationDbContext();
+            libraryDb.Books.Add(new Book
+            {
+                Isbn = 2, Title = "Introduction to F#",
+                Author = "Rajat Patwari", Pages = 550,
+                Rating = Rating.Mature21,
+                Genres = new List<Genre> {Genre.NonFiction, Genre.Thriller, Genre.Mystery}
+            });
+            var books = libraryDb.Books.Where(currentBook => currentBook.Author == "Rajat Patwari").ToList();
+            books.ForEach(book => book.Pages += 50);
+
+            libraryDb.SaveChanges();
+        }
+
+        private static void Test1()
         {
             var nonFictionAo = new BookShelf
             {
