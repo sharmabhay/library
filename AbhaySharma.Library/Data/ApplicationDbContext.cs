@@ -30,6 +30,19 @@ namespace AbhaySharma.Library.Data
                 dbResult =>
                     (Rating)Enum.Parse(typeof(Rating), dbResult)
             );
+
+            modelBuilder.Entity<BookShelf>().Property(bookShelf => bookShelf.AlphabetRange).HasConversion(
+                alphabetRange =>
+                    alphabetRange.ToString(),
+                dbResult =>
+                    AlphabetRange.ParseAlphabetRange(dbResult)
+            );
+            modelBuilder.Entity<BookShelf>().Property(bookShelf => bookShelf.Genre).HasConversion(
+                genre =>
+                    genre.ToString(),
+                dbResult =>
+                    (Genre)Enum.Parse(typeof(Genre), dbResult)
+            );
         }
     }
 }

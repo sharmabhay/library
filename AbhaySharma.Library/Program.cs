@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AbhaySharma.Library.Data;
 using AbhaySharma.Library.Models;
@@ -9,7 +10,7 @@ namespace AbhaySharma.Library
     {
         public static void Main()
         {
-            using var libraryDb = new ApplicationDbContext();
+            /*using var libraryDb = new ApplicationDbContext();
             libraryDb.Books.Add(new Book
             {
                 Isbn = 2, Title = "Introduction to F#",
@@ -21,6 +22,24 @@ namespace AbhaySharma.Library
             books.ForEach(book => book.Pages += 50);
 
             libraryDb.SaveChanges();
+
+            var bookShelf = new BookShelf {Number = 1, AlphabetRange = new AlphabetRange('K', 'U'), Genre = Genre.Comedy};
+            bookShelf.Books.Add(new Book
+            {
+                Title = "Komedy Haven", Author = "Rajat Patwari", Pages = 350, Rating = Rating.ParentalGuidance13,
+                Genres = new List<Genre> {Genre.Comedy, Genre.Romance, Genre.SciFi}
+            });
+
+            using var libraryDb = new ApplicationDbContext();
+            libraryDb.BookShelves.Add(bookShelf);
+
+            libraryDb.SaveChanges();*/
+            
+            using var libraryDb = new ApplicationDbContext();
+
+            foreach (var bookShelf in libraryDb.BookShelves)
+                foreach (var book in bookShelf.Books)
+                    Console.WriteLine(book);
         }
 
         private static void Test1()

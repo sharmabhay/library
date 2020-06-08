@@ -2,19 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace AbhaySharma.Library.Models
 {
     public sealed class BookShelf : IEnumerable<Book>
     {
-        private List<Book> _books = new List<Book>();
+        private readonly List<Book> _books = new List<Book>();
 
         [Key]
         public ushort Number { get; set; }
 
-        [NotMapped]
+        [Required]
         public AlphabetRange AlphabetRange { get; set; }
 
         [Required]

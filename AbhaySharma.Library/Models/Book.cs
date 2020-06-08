@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace AbhaySharma.Library.Models
 {
+    // 'sealed' makes sure you can't make subclasses
     public sealed class Book
     {
         [Key]
