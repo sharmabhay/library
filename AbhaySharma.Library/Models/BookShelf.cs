@@ -8,8 +8,6 @@ namespace AbhaySharma.Library.Models
 {
     public sealed class BookShelf : IEnumerable<Book>
     {
-        private readonly List<Book> _books = new List<Book>();
-
         [Key]
         public ushort Number { get; set; }
 
@@ -20,7 +18,7 @@ namespace AbhaySharma.Library.Models
         public Genre Genre { get; set; }
 
         [Required]
-        public List<Book> Books => _books;
+        public List<Book> Books { get; set; } = new List<Book>();
 
         public void Add(Book book)
         {
@@ -32,7 +30,7 @@ namespace AbhaySharma.Library.Models
             if (!book.Genres.Contains(Genre))
                 throw new ArgumentException(nameof(book.Genres));
 
-            _books.Add(book);
+            Books.Add(book);
         }
 
         public void Remove(Book book)
@@ -40,11 +38,11 @@ namespace AbhaySharma.Library.Models
             if (book == null) 
                 throw new ArgumentNullException(nameof(book));
 
-            _books.Remove(book);
+            Books.Remove(book);
         }
 
         public Book FindBookByTitle(string bookTitle) =>
-            _books.Single(book =>
+            Books.Single(book =>
                 book.Title == (bookTitle ?? throw new ArgumentNullException(nameof(bookTitle))));
         /*
          Same Code as:
@@ -58,7 +56,7 @@ namespace AbhaySharma.Library.Models
         */
 
         public List<Book> FindBooksByAuthor(string bookAuthor) =>
-            _books.Where(book =>
+            Books.Where(book =>
                 book.Author == (bookAuthor ?? throw new ArgumentNullException(nameof(bookAuthor)))).ToList();
         /*
          Same Code as:
@@ -72,10 +70,10 @@ namespace AbhaySharma.Library.Models
         */
 
         public List<Book> FindBooksByGenre(Genre bookGenre) =>
-            _books.Where(book => book.Genres.Contains(bookGenre)).ToList();
+            Books.Where(book => book.Genres.Contains(bookGenre)).ToList();
 
         public IEnumerator<Book> GetEnumerator() =>
-            _books.GetEnumerator();
+            Books.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() =>
             GetEnumerator();

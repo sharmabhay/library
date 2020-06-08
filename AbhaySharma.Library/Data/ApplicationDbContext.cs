@@ -12,7 +12,7 @@ namespace AbhaySharma.Library.Data
         public DbSet<BookShelf> BookShelves { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
-            options.UseSqlite("Data Source=/Users/abhaysharma/RiderProjects/library/db/library_db.sqlite");
+            options.UseSqlite(@"Data Source=C:\Users\rajatp\Desktop\library\db\library_db.sqlite");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
