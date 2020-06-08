@@ -38,7 +38,7 @@ namespace AbhaySharma.Library
 
             using var libraryDb = new ApplicationDbContext();
 
-            foreach (var bookShelf in libraryDb.BookShelves.Include(bookshelf => bookshelf.Books))
+            foreach (var bookShelf in libraryDb.BookShelves.Include(booksInShelf => booksInShelf.Books))
                 foreach (var book in bookShelf)
                     Console.WriteLine(book);
         }
