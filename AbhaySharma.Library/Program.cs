@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using AbhaySharma.Library.Data;
@@ -22,9 +22,9 @@ namespace AbhaySharma.Library
             var books = libraryDb.Books.Where(currentBook => currentBook.Author == "Rajat Patwari").ToList();
             books.ForEach(book => book.Pages += 50);
 
-            libraryDb.SaveChanges();
+            libraryDb.SaveChanges();*/
 
-            var bookShelf = new BookShelf {Number = 1, AlphabetRange = new AlphabetRange('K', 'U'), Genre = Genre.Comedy};
+            /*var bookShelf = new BookShelf {Number = 1, AlphabetRange = new AlphabetRange('K', 'U'), Genre = Genre.Comedy};
             bookShelf.Books.Add(new Book
             {
                 Title = "Komedy Haven", Author = "Rajat Patwari", Pages = 350, Rating = Rating.ParentalGuidance13,
@@ -35,11 +35,11 @@ namespace AbhaySharma.Library
             libraryDb.BookShelves.Add(bookShelf);
 
             libraryDb.SaveChanges();*/
-            
+
             using var libraryDb = new ApplicationDbContext();
 
-            foreach (var bookShelf in libraryDb.BookShelves)
-                foreach (var book in bookShelf.Books)
+            foreach (var bookShelf in libraryDb.BookShelves.Include(bookshelf => bookshelf.Books))
+                foreach (var book in bookShelf)
                     Console.WriteLine(book);
         }
 
