@@ -1,0 +1,6 @@
+ApplicationDbContext (class): DbContext
+    _books: DbSet<Book> { get; set; }
+    _bookShelves: DbSet<BookShelf> { get; set; }
+
+    protected OnConfiguring(options: DbContextOptionsBuilder): void
+    protected OnModelCreating(modelBuilder: ModelBuilder): void
