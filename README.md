@@ -1,2 +1,2 @@
 # AbhaySharma.Library
-This is library management software.
+This is a library management software.
